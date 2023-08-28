@@ -25,7 +25,7 @@ router.get('/products/:id', getProduct)
 router.put('/products/:id', updateProduct)
 router.delete('/products/:id', deleteProduct)
 
-
+// categorias
 router.get('/category', getCategorys)
 router.get('/category/:id', getCategory)
 router.get('/category/:id', createCategory)
