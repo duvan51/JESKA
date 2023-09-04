@@ -1,3 +1,4 @@
+
 //esto es para imagenes
 import {multer} from "multer";
 const storage = multer.diskStorage({
@@ -15,6 +16,7 @@ export const uploadFile =(req, res) =>{
 } 
 //
 import {connect} from '../database'
+
 
 //productos e general
 
