@@ -1,7 +1,37 @@
-@api = http://localhost:3000/products
+@apiProducts = http://localhost:3000/products
+@apiCategory = http://localhost:3000/category
 
-GET {{api}}
+GET {{apiProducts}}
+###
+GET {{apiProducts}}/1
+###
+POST {{apiProducts}}
+Content-Type: application/json
+
+{
+    "title": "camisa mujer",
+    "descripcion": "dsss",
+    "price": "125",
+    "category_id": 1
+}
 
 ###
 
-POST {{api}}
+DELETE {{apiProducts}}/11
+
+###
+
+GET {{apiCategory}}
+###
+
+
+GET {{apiCategory}}/1
+###
+POST {{apiCategory}}
+Content-Type: application/json
+
+{
+    "id" : 12,
+    "title": "asassa",
+    "descripcion": "sdflkdsmlfk sdjkdkjf sdkfj"
+}

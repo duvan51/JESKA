@@ -3,6 +3,8 @@ import taskRoutes from  './routes/tasks.js'
 
 const app = express();
 
-app.use(taskRoutes)
+
+app.use(express.json());
+app.use(taskRoutes);
 
 export default app
