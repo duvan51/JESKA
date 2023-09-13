@@ -1,5 +1,5 @@
-@apiProducts = http://localhost:3000/products
-@apiCategory = http://localhost:3000/category
+@apiProducts = http://localhost:4000/products
+@apiCategory = http://localhost:4000/category
 
 GET {{apiProducts}}
 ###
@@ -35,3 +35,5 @@ Content-Type: application/json
     "title": "asassa",
     "descripcion": "sdflkdsmlfk sdjkdkjf sdkfj"
 }
+
+###

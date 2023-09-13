@@ -1,6 +1,8 @@
-import app from "./app"
+import app from './app'
+import './database'
 
 
-const port = 3000
-app.listen(port)
-console.log("levantado en el puerto ", 3000)
+
+app.listen(4000)
+
+console.log('server puerto 4000')
