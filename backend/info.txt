@@ -1,0 +1,6 @@
+ALTER TABLE products
+ADD COLUMN ruta_imagen_principal VARCHAR(255);
+ALTER TABLE products
+ADD COLUMN ruta_imagen_2 VARCHAR(255);
+ALTER TABLE products
+ADD COLUMN ruta_imagen_3 VARCHAR(255);

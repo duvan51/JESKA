@@ -11,7 +11,7 @@ import {
          getProducts,
          updateCategory,
          updateProduct,
-         uploadFile
+         uploadImage
          
 
 
@@ -24,6 +24,8 @@ const router = Router()
 //products 
 
 router.get('/products', getProducts)
+router.post('/products', createProduct)
+router.post('/products/upload', uploadImage)
 router.get('/products/:id', getProduct)
 router.put('/products/:id', updateProduct)
 router.delete('/products/:id', deleteProduct)

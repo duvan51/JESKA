@@ -1,0 +1,37 @@
+import axios from 'axios'
+
+const URL = "http://localhost:4000"
+
+export const getProducts = async (data)=>{
+    try{
+        const req = await axios.get(`${URL}/products`)
+        return req.data
+    }
+    catch(err){
+        console.error("error al obtener los productos: ", err)
+        throw err;
+    }
+   
+}
+
+
+//crear producto
+export const createproduct = async (productData) => {
+    try {
+      const response = await axios.post(`${URL}/products/`, productData);
+      return response.data; // Si el servidor responde con los datos del producto creado
+    } catch (error) {
+      console.error('Error al crear el producto:', error);
+      throw error;
+    }
+  };
+  
+  export const UploadImage = async (ImageUpload) => {
+    try {
+      const response = await axios.post(`${URL}/products/upload`, ImageUpload);
+      return response.data; // Si el servidor responde con los datos del producto creado
+    } catch (error) {
+      console.error('Error al crear el producto:', error);
+      throw error;
+    }
+  };

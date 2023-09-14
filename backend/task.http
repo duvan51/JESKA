@@ -9,10 +9,10 @@ POST {{apiProducts}}
 Content-Type: application/json
 
 {
-    "title": "camisa mujer",
-    "descripcion": "dsss",
-    "price": "125",
-    "category_id": 1
+    "title": "camisa hombre",
+    "descripcion": "xxxxx",
+    "price": "125000",
+    "category_id": 2
 }
 
 ###
@@ -35,9 +35,9 @@ POST {{apiCategory}}
 Content-Type: application/json
 
 {
-    "id" : 13,
-    "title": "MALETAS",
-    "descripcion": "malestas samlkmd"
+  
+    "title": "MALETAS NEGRAS",
+    "descripcion": "malestas NEGRAS"
 }
 
 ###

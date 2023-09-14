@@ -28,6 +28,22 @@ export const createProduct = async(req, res) => {
         ...req.body,
     });
 }
+export const uploadImage =async(req, res) =>{
+    const uploadedImage = req.files.image; // Suponiendo que estás utilizando una biblioteca de manejo de archivos como Multer
+    const uniqueFilename = generateUniqueFilename();
+    const storagePath = './images_products/' + uniqueFilename;
+   
+    uploadedImage.mv(storagePath, (err) => {
+        if (err) {
+          // Manejar errores
+        } else {
+          // La imagen se ha guardado correctamente
+        }
+      });
+}
+
+
+
 
 
 
@@ -58,9 +74,8 @@ export const getCategory = async(req, res) => {
 }
 export const createCategory = async (req, res) => {
     const connection = await connect();
-    const [results] = await connection.query('INSERT INTO categories(id, title, descripcion) VALUES (?,?,?)', [
-     
-        req.body.id,
+    const [results] = await connection.query('INSERT INTO categories(title, descripcion) VALUES (?,?)', [
+
         req.body.title,
         req.body.descripcion
     ]);
