@@ -32,8 +32,8 @@ router.delete('/products/:id', deleteProduct)
 router.get('/category', getCategorys)
 router.post('/category', createCategory)
 router.get('/category/:id', createCategory)
-router.get('/category/:id', deleteCategory)
-router.get('/category/:id', updateCategory)
+router.delete('/category/:id', deleteCategory)
+router.put('/category/:id', updateCategory)
 
 
 

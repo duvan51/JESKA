@@ -36,7 +36,7 @@ export const deleteProduct =async (req, res) => {
     const connection = await connect();
     const result = await connection.query("DELETE FROM products WHERE id=?", [req.params.id] )
     console.log(result)
-    res,json({})
+    res.json({})
 }
 
 export const updateProduct = (req, res) => {
@@ -70,8 +70,11 @@ export const createCategory = async (req, res) => {
         ...req.body,
     });
 }
-export const deleteCategory = (req, res) => {
-    res.send("hello world estamos en get Products")
+export const deleteCategory = async(req, res) => {
+    const connection = await connect();
+    const result = await connection.query("DELETE FROM categories WHERE id=?", [req.params.id] )
+    console.log(result)
+    res.json({})
 }
 export const updateCategory = (req, res) => {
     res.send("hello world estamos en get Products")

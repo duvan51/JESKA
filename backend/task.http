@@ -25,15 +25,19 @@ GET {{apiCategory}}
 ###
 
 
+DELETE {{apiCategory}}/12
+
+###
+
 GET {{apiCategory}}/1
 ###
 POST {{apiCategory}}
 Content-Type: application/json
 
 {
-    "id" : 12,
-    "title": "asassa",
-    "descripcion": "sdflkdsmlfk sdjkdkjf sdkfj"
+    "id" : 13,
+    "title": "MALETAS",
+    "descripcion": "malestas samlkmd"
 }
 
 ###
