@@ -30,6 +30,7 @@ export const createproduct = async (productData) => {
     try {
       const response = await axios.post(`${URL}/products/upload`, ImageUpload);
       return response.data; // Si el servidor responde con los datos del producto creado
+      
     } catch (error) {
       console.error('Error al crear el producto:', error);
       throw error;

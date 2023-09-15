@@ -1,5 +1,6 @@
 import {connect} from '../database'
 
+
 export const getProducts =async (req, res) => {
     const connection = await connect();
     const [rows] = await connection.query('SELECT * FROM products')
@@ -29,17 +30,9 @@ export const createProduct = async(req, res) => {
     });
 }
 export const uploadImage =async(req, res) =>{
-    const uploadedImage = req.files.image; // Suponiendo que estás utilizando una biblioteca de manejo de archivos como Multer
-    const uniqueFilename = generateUniqueFilename();
-    const storagePath = './images_products/' + uniqueFilename;
-   
-    uploadedImage.mv(storagePath, (err) => {
-        if (err) {
-          // Manejar errores
-        } else {
-          // La imagen se ha guardado correctamente
-        }
-      });
+    
+    console.log(req.file)
+    res.send("subido")
 }
 
 

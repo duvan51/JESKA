@@ -18,30 +18,35 @@ import axios from 'axios'
 const CreateProduct = () => {
  
   //image
-  const [imageURL, setImageURL] = useState(null);
-  const handleImageUpload = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('image', e.target.files[0]);
-
-    try {
-      // Enviar la imagen al servidor
-      const response = await axios.post('http://localhost:4000/products/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      // Obtener la URL de la imagen del servidor
-      const imageUrlFromServer = response.data.imageUrl;
-
-      // Establecer la URL de la imagen en el estado para mostrarla
-      setImageURL(imageUrlFromServer);
-    } catch (error) {
-      console.error('Error al subir la imagen:', error);
+  const [file, setFile] = useState(null);
+ 
+  
+  const ImageSelect = (e)=>{
+    setFile(e.target.files[0])
+   
+  }
+  
+  const sendHanldler = ()=>{
+    if(!file){
+      alert("debes seleccionar algun archivo")
+      return
     }
-  };
+      const formdata= new FormData()
+      formdata.append('image', file)
+
+      fetch('http://localhost:4000/products/upload', {
+        method : 'POST',
+        body : formdata
+      })
+      .then (res => res.text())
+      .then (res => console.log(res))
+      .catch(err => {
+        console.err(err)
+      })
+      document.getElementById('fileinput').value = null
+
+      setFile(null)
+  }
 //end image
 
 
@@ -165,15 +170,13 @@ const CreateProduct = () => {
         </Form.Group>
         <Button type="submit">Agregar Producto</Button>
     </Form>
+    
     <div>
       <h1>Subir y Mostrar Imagen</h1>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-      {imageURL && (
-        <div>
-          <h2>Imagen Subida</h2>
-          <img src={imageURL} alt="Imagen Subida" />
-        </div>
-      )}
+        <form encType="multipart/form-data" >
+        <input id="fileinput" type="file" name="image" accept="image/*" onChange={ImageSelect} />
+        <button type="submit" onClick={sendHanldler}>Enviar</button>
+        </form> 
     </div>
   </div>
   )
