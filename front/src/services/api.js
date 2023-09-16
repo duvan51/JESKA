@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const URL = "http://localhost:4000"
+const URL = "http://localhost:8080"
 
-export const getProducts = async (data)=>{
+export const getProducts = async ()=>{
     try{
         const req = await axios.get(`${URL}/products`)
         return req.data
@@ -13,7 +13,6 @@ export const getProducts = async (data)=>{
     }
    
 }
-
 
 //crear producto
 export const createproduct = async (productData) => {
