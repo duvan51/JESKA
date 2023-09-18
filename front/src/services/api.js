@@ -5,6 +5,7 @@ const URL = "http://localhost:8080"
 export const getProducts = async ()=>{
     try{
         const req = await axios.get(`${URL}/products`)
+        console.log(req)
         return req.data
     }
     catch(err){
