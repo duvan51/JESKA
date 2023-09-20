@@ -2,8 +2,11 @@ import React from 'react'
 
 const Admin = () => {
   return (
-    <div>
-      <div className='column1'>
+    <div className='admin'>
+      <div className='config'>
+        <div>
+          
+        </div>
         <ul>
           <li>Productos</li>
           <li>Categorias</li>

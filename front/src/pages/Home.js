@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import {getProducts} from '../services/api'
-import Header from '../components/Header'
+
 
 const Home = () => {
   const [Data, setData]=useState([])
@@ -26,7 +26,6 @@ const Home = () => {
 
   return (
       <div>
-          <Header></Header>
           <ul>
             {Data.map((product)=>(
             <li key={product.id}>{product.title}</li>
