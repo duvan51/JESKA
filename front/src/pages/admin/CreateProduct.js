@@ -12,9 +12,6 @@ import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
 
 
-import axios from 'axios'
-
-
 const CreateProduct = () => {
  
   //image
@@ -53,7 +50,7 @@ const CreateProduct = () => {
    
   const [Datas, setDatas] = useState([])
     useEffect(() => {
-        // Llama a la función de servicio para obtener productos
+        // Llama a la función de servicio para obtener categorias
         getCategories()
           .then(data => {
             // Maneja los datos obtenidos

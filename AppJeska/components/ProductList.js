@@ -1,41 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, RefreshControl } from 'react-native';
-import TaskItem from './TaskItem';
+import ProductItem from './ProductItem';
 import { getProducts } from '../services/ApiProducts'
 
-const TaskList = () => {
+const ProductList = () => {
 
     const [products, setProducts] = useState([])
     const [refreshing, setRefresing] = useState(false)
 
 
-    const loadTask = async()=>{
+    const loadProduct = async()=>{ 
       const data = await getProducts()
-      setProducts(data) 
+      setProducts(data)
+    
     }    
 
     useEffect(()=>{
-      loadTask()
+        loadProduct()
     },[])
 
-    console.log(products)
     
 
     
 
     const handleDelete = async (id)=>{
         await deleteTask(id)
-        await loadTask()
+        await loadProduct()
     }
 
     const renderItem=({ item }) => {
-        return (<TaskItem task={item} handleDelete={handleDelete} />)
+        return (<ProductItem product={item} handleDelete={handleDelete} />)
     }
 
 
     const onRefresh = React.useCallback(async ()=>{
         setRefresing(true);
-        await loadTask()
+        await loadProduct()
         setRefresing(false);
     })
 
@@ -59,4 +59,4 @@ const TaskList = () => {
     );
 };
 
-export default TaskList;
+export default ProductList;

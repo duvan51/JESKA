@@ -1,5 +1,5 @@
 import { View, Text ,StyleSheet} from 'react-native'
-import React, { Children } from 'react'
+import  { Children } from 'react'
 
 const Layout = ({children}) => {
   return (

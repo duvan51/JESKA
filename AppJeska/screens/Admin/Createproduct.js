@@ -5,19 +5,19 @@ import Layout from '../../components/Layout'
 
 const Createproduct = ({route, navigation}) => {
   
-  const [user, setUser] = useState({
-    name:"",
-    email:"",
-    password:""
+  const [product, setProduct] = useState({
+    title:"",
+    description:"",
+    price:"",
+    category_id:"1"
   })
 
   
   
-  const handleChange = (name, value)=> setUser({...user, [name]:value});
+  const handleChange = (name, value)=> setProduct({...product, [name]:value});
   
   const handleSubmit = ()=>{
-    setUser(user)
-    navigation.navigate('users')
+    setProduct(product)
   }
  
  
@@ -28,12 +28,12 @@ const Createproduct = ({route, navigation}) => {
       // Aquí puedes agregar más opciones de navegación según tus necesidades
       });
       (async()=>{
-        const user = await getTasks(route.params.id)});
-        console.log(user)
-        setUser({
-          email: user.email,
-          name: user.name,
-          password: user.password
+        const product = await getTasks(route.params.id)});
+        console.log(product)
+        setProduct({
+          title: product.title,
+          description: product.description,
+          price: product.price
         })
       }
      
@@ -45,24 +45,24 @@ const Createproduct = ({route, navigation}) => {
     <Layout>
       <TextInput 
       style={styles.input}
-      placeholder='name'
+      placeholder='nombre de producto'
       placeholderTextColor="gray"
-      onChangeText={(text)=>handleChange("name",text)}
-      value={user.name}
+      onChangeText={(text)=>handleChange("nombre de producto",text)}
+      value={product.title}
       />
       <TextInput
       style={styles.input} 
-      placeholder='email'
+      placeholder='description'
       placeholderTextColor="gray"
-      onChangeText={(text)=>handleChange("email",text)}
-      value={user.email}
+      onChangeText={(text)=>handleChange("descripcion",text)}
+      value={product.description}
       />
       <TextInput 
       style={styles.input}
       placeholder='password'
       placeholderTextColor="gray"
       onChangeText={(text)=>handleChange("password",text)}
-      value={user.password}
+      value={product.price}
       />
       <TouchableOpacity
       style={styles.ButtonSave}

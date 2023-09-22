@@ -2,22 +2,26 @@ import { View, Text, StyleSheet, Touchable, TouchableOpacity } from 'react-nativ
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const TaskItem = ({task, handleDelete}) => {
+
+const ProductItem = ({product, handleDelete}) => {
 
   const navigation = useNavigation();
 
   const navigateToScreen = () => {
     
-    navigation.navigate('TaskFormScreen', {id: task.id });
+    navigation.navigate('TaskFormScreen', {id: product.id });
   };
   
 
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity style={styles.text} onPress={navigateToScreen}>
-        <Text style={styles.itemTitle}>{task.title}</Text> 
+        <Text style={styles.itemTitle}>{product.title}</Text> 
+        <Icon name="star" size={30} color="gold" />
+
       </TouchableOpacity>
       <View style={styles.Btns}>
         <TouchableOpacity style={styles.btnT}
@@ -66,4 +70,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default TaskItem
+export default ProductItem
