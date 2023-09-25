@@ -6,3 +6,33 @@
         
     }
 }
+
+
+
+
+.Home{
+    .HomeBody{
+        margin-left: 100px;
+        margin-right: 100px;
+        display: flex;
+        flex-direction: column;
+        
+        .carrouselProduct{
+            .card-container{
+                background-color: azure;
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+                .carousel-inner{
+                    .carousel-item{
+                        transition: none;
+                        width: 200px;
+                        margin-right: -5px;
+                    }
+
+                }
+            }
+
+        }
+    }
+}
