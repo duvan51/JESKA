@@ -1,6 +1,7 @@
 import './App.scss';
 import  Home  from './pages/Home'
 import Filterproduct from './pages/Filterproduct'
+import HomeSearch from './pages/Home_search'
 
 import Admin from './pages/Admin';
 import CreateProduct from './pages/admin/CreateProduct'
@@ -16,9 +17,11 @@ import Slidebars  from './pages/admin/Components/Slidebars';
 const App = () => {
   return (
     <div className="App">
+      <Header />
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<PublicRoutes />} />
+        <Route path="/HomeSearch" element={<HomeSearch />} />
     
         {/* Rutas de administración */}
         <Route path="/admin/*" element={<AdminRoutes />} />
@@ -30,9 +33,9 @@ const App = () => {
 // Componente que contiene las rutas públicas
 const PublicRoutes = () => (
   <>
-    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
+      
       <Route path="/filterProducts" element={<Filterproduct />} />
       <Route path="/carts" element={<Home />} />
     </Routes>

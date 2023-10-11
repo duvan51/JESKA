@@ -1,0 +1,97 @@
+.Home_search{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: rgb(235, 228, 233);
+   
+   
+
+//esto es del primer nav
+    .Home_nav{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        .Home_nav_main{
+            width: 80%;
+
+            .Home_nav_main_one{
+
+            }
+            .Home_nav_main_two{
+                
+            
+            }
+            .Home_nav_main_three{
+                display: flex;
+                flex-direction: column;
+                .Home_nav_main_three_items{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap:5px;
+                    .cat{
+                        background: white;
+                        height: 50px;
+                        border-radius: 5px;
+                        cursor:pointer;
+                    }
+                    .cat:hover{
+                        background: rgba(255, 255, 255, 0.705);
+                    }
+                }
+                h3{
+                    width:80%;
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+//esto es del segundo filter    
+    .Home_filt{
+        
+        .Home_filt_main{
+            display: flex;
+            flex-direction: column;
+
+            .Home_filt_main_header{
+
+            }
+            .Home_filt_main_body{
+                width: 90%;
+                .Home_filt_main_body_item{
+                    width: 100%;
+                    background-color: white;
+                    
+                    .Home_filt_main_body_item_{
+                        display:grid;
+                        grid-template-columns: 20% 80%;
+                        
+                        .Home_filt_main_body_item_img{
+                            background-color: red;
+                            
+                            .Home_filt_main_body_item_img_{
+                                
+                                img{
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                            }
+                        
+                        
+                        }
+                        
+
+                    }
+                
+                
+                }
+            }
+
+        }
+
+    }
+}
+
