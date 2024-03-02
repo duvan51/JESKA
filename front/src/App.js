@@ -6,6 +6,7 @@ import HomeSearch from './pages/Home_search'
 import Admin from './pages/Admin';
 import CreateProduct from './pages/admin/CreateProduct'
 import CreateCategories from './pages/admin/CreateCategories'
+import ProductList from './pages/admin/ProductList';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 
@@ -20,40 +21,26 @@ const App = () => {
       <Header />
       <Routes>
         {/* Rutas públicas */}
-        <Route path="/" element={<PublicRoutes />} />
-        <Route path="/HomeSearch" element={<HomeSearch />} />
-    
+        <Route path="/" element={<Home />} />
+        
+        <Route path="HomeSearch" element={<HomeSearch />} />
+        <Route path="filterProducts" element={<Filterproduct />} />
+        <Route path="carts" element={<Home />} />
+      
         {/* Rutas de administración */}
-        <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="admin" element={<Admin />}>
+          <Route path="ProductList" element={<ProductList />} />
+          <Route path="CreateProduct" element={<CreateProduct />} />
+          <Route path="CreateCategories" element={<CreateCategories />} />
+        </Route>
       </Routes>
     </div>
   );
 };
 
-// Componente que contiene las rutas públicas
-const PublicRoutes = () => (
-  <>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      
-      <Route path="/filterProducts" element={<Filterproduct />} />
-      <Route path="/carts" element={<Home />} />
-    </Routes>
-  </>
-);
 
-// Componente que contiene las rutas de administración
-const AdminRoutes = () => (
-  <>
-    <Slidebars />
-    <Routes>
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/admin/CreateProduct" element={<CreateProduct />} />
-      <Route path="/admin/CreateCategories" element={<CreateCategories />} />
-      {/* Puedes agregar más rutas hijas de administración aquí */}
-      <Route path="/" element={<Navigate to="/admin" />} /> {/* Redirecciona a /admin por defecto */}
-    </Routes>
-  </>
-);
 
 export default App;
+
+
+

@@ -1,28 +1,21 @@
 import React from 'react'
+import Slidebars from './admin/Components/Slidebars'
+import { Link, Outlet } from 'react-router-dom'
 
 const Admin = () => {
   return (
     <div className='admin'>
-      <div className='config'>
-        <div>
-          
-        </div>
-        <ul>
-          <li>Productos</li>
-          <li>Categorias</li>
-          <li>ventas</li>
-          <li>landing</li>
-        </ul>
-        <ul>
-          <li>Productos</li>
-          <li>Categorias</li>
-          <li>ventas</li>
-          <li>landing</li>
-        </ul>
-      </div>
+      <div className="slidebars" >
+      <ul>
+          <li><Link to="/admin/CreateProduct" >Crear producto</Link></li>
+          <li><Link to="/admin/ProductList">lista de productos</Link></li>
+          <li><Link to="/">Ventas</Link></li>
+          <li><Link to="/">Landing</Link></li>
+      </ul>
       
+    </div>
       <div className='column2'>
-        <header>config</header>
+          <Outlet />
       </div>
       
       <div className='column3'>

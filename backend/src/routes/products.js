@@ -13,11 +13,21 @@ import {
          getProducts,
          updateCategory,
          updateProduct,
-         uploadImage
+         uploadImage,
+         connects,       
+         pings,
+         login,
+         getUsers,
+
+
+         createProductC
+         
+
          
 
 
 }from "../controllers/products.js"
+
 
 const router = Router()
 
@@ -25,19 +35,39 @@ const router = Router()
 
 
 // Configurando multer
+
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../Images'), 
+    destination: (req, file, cb)=>{
+        cb(null, path.join(__dirname, "../images"));
+    },
     filename: (req, file, cb)=>{
-        cb(null, Date.now() + "-" +file.originalname)
-    }
-})
-const upload = multer({ storage: storage }).single('image');
-//fin configurando multer
+        cb(null, Date.now() + "-" + file.originalname);
+    },
+});
+const upload = multer({ storage: storage });
+//fin configurando multer*/
+
+
+router.post('/products/upload-image', upload.single('image'), uploadImage)
+
+//crear producto con imagen
+router.post('/products/upload-im', createProductC)
+
+
+
+
+
+
+
+router.get('/', connects)
+router.get('/ping', pings)
 
 
 router.get('/products', getProducts)
 router.post('/products', createProduct)
-router.post('/products/upload',upload,uploadImage)
+
+
+
 router.get('/products/:id', getProduct)
 router.put('/products/:id', updateProduct)
 router.delete('/products/:id', deleteProduct)
@@ -50,5 +80,23 @@ router.delete('/category/:id', deleteCategory)
 router.put('/category/:id', updateCategory)
 
 
+//user 
+router.post ("/login", login)
+
+//users
+router.get('/users', getUsers)
+
+
+
+//user -- products
+router.get('/user/:id/products', getProduct)
+
+
 
 export default router
+
+
+
+
+
+

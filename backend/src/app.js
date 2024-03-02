@@ -22,4 +22,4 @@ app.use(cors({
 app.use(express.json());
 app.use(products);
 
-export default app
+export default app;

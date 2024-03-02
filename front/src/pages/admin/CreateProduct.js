@@ -14,6 +14,7 @@ import Swal from 'sweetalert2'
 
 const CreateProduct = () => {
  
+  /*
   //image
   const [file, setFile] = useState(null);
  
@@ -44,6 +45,7 @@ const CreateProduct = () => {
 
       setFile(null)
   }
+  */
 //end image
 
 
@@ -68,7 +70,8 @@ const CreateProduct = () => {
     descripcion:" ",  
     price: 0,
     title:" ",
-    category_id:0
+    category_id:0,
+    ruta_imagen_princial: " "
   });
   
   const handleInput = (e)=>{
@@ -94,6 +97,7 @@ const CreateProduct = () => {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
+       //   sendHanldler()
           Swal.fire('Producto Guardado!', '', 'success')
           //producto creado
           const createdProduct = createproduct(product);
@@ -113,6 +117,18 @@ const CreateProduct = () => {
     <div>
     <h1>add product</h1>
     <Form onSubmit={handleSubmit}>
+       
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="ruta_imagen_princial">Ruta Image: </Form.Label>
+          <Form.Control 
+           type="text"
+           id="ruta_imagen_princial"
+           name="ruta_imagen_princial"
+           value={product.ruta_imagen_princial}
+           onChange={handleInput}
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3" >
           <Form.Label htmlFor="title">Nombre del Producto</Form.Label>
           <Form.Control 
@@ -148,6 +164,7 @@ const CreateProduct = () => {
            required
           />
         </Form.Group>
+
         <Form.Group className="mb-3">
           <Form.Label htmlFor="category_id">Categoria: </Form.Label>
           <Form.Select 
@@ -165,16 +182,11 @@ const CreateProduct = () => {
             ))}
           </Form.Select>
         </Form.Group>
-        <Button type="submit">Agregar Producto</Button>
+
+
+        <Button type="submit" >Agregar Producto</Button>
     </Form>
     
-    <div>
-      <h1>Subir y Mostrar Imagen</h1>
-        <form encType="multipart/form-data" >
-        <input id="fileinput" type="file" name="image" accept="image/*" onChange={ImageSelect} />
-        <button type="submit" onClick={sendHanldler}>Enviar</button>
-        </form> 
-    </div>
   </div>
   )
 }
